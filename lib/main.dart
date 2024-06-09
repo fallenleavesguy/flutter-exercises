@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_exercises/routes/nested-scroll-issue.dart';
+import 'package:flutter_exercises/routes/nested_scroll_issue.dart';
+import 'package:flutter_exercises/routes/nested_scroll_view-example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -90,26 +91,49 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(
         children: <Widget>[
-          DecoratedBox(
-            decoration: BoxDecoration(
-              color: Colors.yellow[500],
-            ),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const NestedScrollIssue(),
-                  ),
-                );
-              },
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text("演示滚动视图嵌套问题"),
-              ),
-            ),
+          buildItem(context,
+            child: Text("演示滚动视图嵌套问题"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const NestedScrollIssue(),
+                ),
+              );
+            },
+          ),
+          buildItem(context,
+            child: Text("演示滚动视图嵌套简单用法"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const NestedScrollViewExample(),
+                ),
+              );
+            },
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildItem(BuildContext context, {
+    required Widget child, void Function()? onTap
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: Colors.yellow[500],
+        ),
+        child: GestureDetector(
+          onTap: onTap,
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: child,
+          ),
+        ),
       ),
     );
   }
