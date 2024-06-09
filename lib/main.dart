@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_exercises/routes/nested_scroll_issue.dart';
 import 'package:flutter_exercises/routes/nested_scroll_view-example.dart';
+import 'package:flutter_exercises/routes/print_snap_nested_scroll_header.dart';
 
 void main() {
   runApp(const MyApp());
@@ -109,6 +110,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 context,
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) => const NestedScrollViewExample(),
+                ),
+              );
+            },
+          ),
+          buildItem(context,
+            child: Text("演示输出滚动视图嵌套头部同步占用高度"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const SnapAppBar2(),
                 ),
               );
             },
