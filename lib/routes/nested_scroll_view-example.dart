@@ -1,23 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_exercises/helpers/list.dart';
 
 class NestedScrollViewExample extends StatelessWidget {
   const NestedScrollViewExample({super.key});
 
-  SliverList buildSliverList(int count) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          return SizedBox(
-            height: 50,
-            child: Center(child: Text('SliverList Item $index')),
-          );
-        },
-        childCount: count,
-      ),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Material(
       child: NestedScrollView(

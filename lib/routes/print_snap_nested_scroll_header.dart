@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_exercises/helpers/list.dart';
 
 class SnapAppBar2 extends StatefulWidget {
   const SnapAppBar2({Key? key}) : super(key: key);
@@ -14,20 +15,6 @@ class _SnapAppBar2State extends State<SnapAppBar2> {
   void onOverlapChanged() {
     // 打印 overlap length
     print(handle.layoutExtent);
-  }
-
-  SliverList buildSliverList(int count) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          return SizedBox(
-            height: 50,
-            child: Center(child: Text('SliverList Item $index')),
-          );
-        },
-        childCount: count,
-      ),
-    );
   }
 
   @override
