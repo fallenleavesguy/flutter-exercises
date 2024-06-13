@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_exercises/routes/chess_route.dart';
 import 'package:flutter_exercises/routes/nested_scroll_issue.dart';
 import 'package:flutter_exercises/routes/nested_scroll_view-example.dart';
 import 'package:flutter_exercises/routes/nested_tabbar_view.dart';
@@ -145,6 +146,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 context,
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) => const TurnBoxRoute(),
+                ),
+              );
+            },
+          ),
+          buildItem(context,
+            child: Text("演示画棋盘"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const ChessRoute(),
                 ),
               );
             },
