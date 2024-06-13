@@ -4,6 +4,7 @@ import 'package:flutter_exercises/routes/nested_scroll_issue.dart';
 import 'package:flutter_exercises/routes/nested_scroll_view-example.dart';
 import 'package:flutter_exercises/routes/nested_tabbar_view.dart';
 import 'package:flutter_exercises/routes/print_snap_nested_scroll_header.dart';
+import 'package:flutter_exercises/routes/turnbox_route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -133,6 +134,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 context,
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) => const NestedTabBarView1(),
+                ),
+              );
+            },
+          ),
+          buildItem(context,
+            child: Text("演示Turnbox"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const TurnBoxRoute(),
                 ),
               );
             },
