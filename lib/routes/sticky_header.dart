@@ -7,38 +7,40 @@ class StickyHeaderExample extends StatelessWidget {
       appBar: AppBar(
         title: Text('Sticky Header Example'),
       ),
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => ListTile(
-                title: Text('Item $index'),
+      body: Scrollbar(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => ListTile(
+                  title: Text('Item $index'),
+                ),
+                childCount: 10,
               ),
-              childCount: 10,
             ),
-          ),
-          SliverPersistentHeader(
-            delegate: _SliverAppBarDelegate(
-              minHeight: 50.0,
-              maxHeight: 50.0,
-              child: Container(
-                color: Colors.red,
-                child: Center(
-                  child: Text('Sticky Header'),
+            SliverPersistentHeader(
+              delegate: _SliverAppBarDelegate(
+                minHeight: 50.0,
+                maxHeight: 50.0,
+                child: Container(
+                  color: Colors.red,
+                  child: Center(
+                    child: Text('Sticky Header'),
+                  ),
                 ),
               ),
+              pinned: true,
             ),
-            pinned: true,
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => ListTile(
-                title: Text('Item ${index + 10}'),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => ListTile(
+                  title: Text('Item ${index + 10}'),
+                ),
+                childCount: 20,
               ),
-              childCount: 20,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
