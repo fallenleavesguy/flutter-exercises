@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_exercises/routes/chess_route.dart';
+import 'package:flutter_exercises/routes/draggable_scrollable_sheet.dart';
 import 'package:flutter_exercises/routes/nested_scroll_issue.dart';
 import 'package:flutter_exercises/routes/nested_scroll_view-example.dart';
 import 'package:flutter_exercises/routes/nested_tabbar_view.dart';
@@ -169,6 +170,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 context,
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) => StickyHeaderExample(),
+                ),
+              );
+            },
+          ),
+          buildItem(context,
+            child: Text("演示DraggableScrollableSheet"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => DraggableScrollableSheetExampleApp(),
                 ),
               );
             },
